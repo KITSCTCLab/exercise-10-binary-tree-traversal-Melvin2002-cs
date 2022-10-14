@@ -19,14 +19,12 @@ def insert(root, new_value) -> BinaryTreeNode:
     if root==None:
         return BinaryTreeNode(new_value)
     else:
-        temp=root
-        while(temp!=None):
-            if temp.data>new_value:
-                temp=temp.left_child
-            else:
-                temp=temp.right_child
-        temp=BinaryTreeNode(new_value)
-        return temp
+        if temp.data>new_value:
+            insert(root.left_child,new_value)
+        else:
+            insert(root.right_child,new_value)
+        #temp=BinaryTreeNode(new_value)
+        
 
 
 def inorder(root) -> None:
