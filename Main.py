@@ -15,8 +15,6 @@ def insert(root, new_value) -> BinaryTreeNode:
         Finally, return the root.
         """
     
-    def insert(root, new_value) -> 
-    BinaryTreeNode: 
         if not root: 
             root = BinaryTreeNode(new_value) 
             return root 
