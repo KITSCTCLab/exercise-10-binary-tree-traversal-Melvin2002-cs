@@ -15,46 +15,52 @@ def insert(root, new_value) -> BinaryTreeNode:
         Finally, return the root.
         """
     
-    # Write your code here
-    if root==None:
-        root= BinaryTreeNode(new_value)
-        return root
-    else:
-        if root.data>new_value:
-            insert(root.left_child,new_value)
+    def insert(root, new_value) -> 
+    BinaryTreeNode: 
+        if not root: 
+            root = BinaryTreeNode(new_value) 
+            return root 
+        if new_value < root.data: 
+            if root.left_child: 
+                insert(root.left_child, new_value) 
+                else: 
+                    root.left_child = BinaryTreeNode(new_value)
         else:
-            insert(root.right_child,new_value)
-        #temp=BinaryTreeNode(new_value)
+            if root.right_child: 
+                insert(root.right_child, new_value) 
+            else:
+                root.right_child = BinaryTreeNode(new_value)
         
 
 
 def inorder(root) -> None:
     # Write your code here
-    if root==None:
-        return
-    inorder(root.left_child)
-    print(root.data,end=" ")
-    inorder(root.right_child)
+    if root is None: 
+        return 
+    
+    postorder(root.left_child) 
+    print(root.data, end = " ")
+    postorder(root.right_child) 
     
     
 
 def preorder(root) -> None:
     # Write your code here
-    if root==None:
-        return
-    print(root.data,end=" ")
-    preorder(root.left_child)
-    preorder(root.right_child)
+    if root is None: 
+        return 
+    print(root.data, end = " ")
+    postorder(root.left_child) 
+    postorder(root.right_child) 
+    
     
 
 
-def postorder(root) -> None:
-    # Write your code here
-    if root==None:
-        return
-    postorder(root.left_child)
-    postorder(root.right_child)
-    print(root.data,end=" ")
+def postorder(root) -> None: 
+    if root is None: 
+        return 
+    postorder(root.left_child) 
+    postorder(root.right_child) 
+    print(root.data, end = " ")
 
 
 # Do not change the following code
